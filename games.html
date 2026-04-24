@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Portfolio of Allen Khristan San Carlos – Game Developer. Browse PC and mobile games built with Unity Engine.">
+    <link rel="stylesheet" href="css/game.css">
+    <title>Portfolio | Allen San Carlos</title>
+</head>
+
+<body>
+
+    <!-- ── NAVBAR ─────────────────────────────────────── -->
+    <nav>
+        <a class="nav-logo" href="index.html">Allen<span>.dev</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html" class="active">Portfolio</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- ── PAGE CONTENT ───────────────────────────────── -->
+    <div class="portfolio-page">
+
+        <!-- Page hero -->
+        <div class="page-hero">
+            <p class="eyebrow">My Work</p>
+            <h1>Project Games</h1>
+            <p>
+                A collection of games built with passion using the Unity Engine —
+                from horror side-scrollers to educational mobile experiences.
+            </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+            <button class="tab-btn active" id="btn-all" onclick="filterGames('all')">All Projects</button>
+            <button class="tab-btn" id="btn-pc" onclick="filterGames('pc')">PC</button>
+            <button class="tab-btn" id="btn-mobile" onclick="filterGames('mobile')">Mobile</button>
+        </div>
+
+        <!-- ── PC SECTION ─────────────────────────────── -->
+        <section class="games-section" id="section-pc" data-platform="pc">
+            <p class="section-label">PC Games</p>
+            <div class="games-grid">
+
+                <!-- Harang -->
+                <div class="game-card" data-platform="pc">
+                    <div class="card-thumb">
+                        <span class="platform-badge pc">PC</span>
+                        <span class="award-badge">🏆 Best in Narrative</span>
+                        <img src="image/Harang.png" alt="Harang – 3D Survival Horror Side-Scroller">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-genre">3D · Survival Horror · Side-Scroller</span>
+                        <h2 class="card-title">HARANG</h2>
+                        <p class="card-desc">
+                            A 3D survival horror side-scroller set in a haunted Bicol village.
+                            You play as a young boy using the light of his phone as both a weapon
+                            and guide through the dark streets, facing creatures drawn from
+                            Philippine mythology.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Unity</span>
+                            <span class="card-tag">C#</span>
+                            <span class="card-tag">3D</span>
+                            <span class="card-tag">Philippine Mythology</span>
+                            <span class="card-tag">Bicol University Game Jam 2025</span>
+                        </div>
+                        <span class="card-role">Programmer</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── MOBILE SECTION ─────────────────────────── -->
+        <section class="games-section" id="section-mobile" data-platform="mobile">
+            <p class="section-label">Mobile Games</p>
+            <div class="games-grid">
+
+                <!-- Shadow Run -->
+                <div class="game-card" data-platform="mobile">
+                    <div class="card-thumb">
+                        <span class="platform-badge mobile">Mobile</span>
+                        <img src="image/ShadowRun.png" alt="Shadow Run – Mobile Game">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-genre">3D · Action · Runner</span>
+                        <h2 class="card-title">Shadow Run</h2>
+                        <p class="card-desc">
+                            A fast-paced 3D mobile runner where players dash through
+                            shadow-filled environments, dodging obstacles and enemies
+                            in a high-intensity arcade experience.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Unity</span>
+                            <span class="card-tag">C#</span>
+                            <span class="card-tag">Mobile</span>
+                            <span class="card-tag">Brackeys Game Jam 2024</span>
+                        </div>
+                        <span class="card-role">Lead Programmer</span>
+                    </div>
+                </div>
+
+                <!-- Anura Defender -->
+                <div class="game-card" data-platform="mobile">
+                    <div class="card-thumb">
+                        <span class="platform-badge mobile">Mobile</span>
+                        <span class="award-badge">🏆 Top 12</span>
+                        <img src="image/AnuraDefender.png" alt="Anura Defender – Educational Mobile Game">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-genre">3D · Educational · Casual</span>
+                        <h2 class="card-title">Anura Defender</h2>
+                        <p class="card-desc">
+                            An educational 3D mobile game teaching elementary students
+                            about endemic frog species of the Philippines. Players defend
+                            the frogs' natural habitat from invading insects in an engaging,
+                            casual format.
+                        </p>
+                        <div class="card-tags">
+                            <span class="card-tag">Unity</span>
+                            <span class="card-tag">C#</span>
+                            <span class="card-tag">Educational</span>
+                            <span class="card-tag">Globe Go Gaming 2025</span>
+                        </div>
+                        <span class="card-role">Programmer</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div><!-- /portfolio-page -->
+
+    <!-- ── FILTER SCRIPT ───────────────────────────────── -->
+    <script>
+        function filterGames(platform) {
+            // Update tab active state
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + platform)?.classList.add('active');
+
+            const sections = document.querySelectorAll('.games-section');
+            sections.forEach(section => {
+                const sectionPlatform = section.dataset.platform;
+                if (platform === 'all' || sectionPlatform === platform) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
