@@ -274,39 +274,68 @@ nav {
 .exp-entry:last-child { border-bottom: none; padding-bottom: 0; }
 .exp-entry:first-of-type { padding-top: 0; }
 
-.exp-meta {
+.exp-header {
     display: flex;
-    align-items: baseline;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.exp-main {
+    display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-bottom: 6px;
 }
 
 .exp-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+.exp-project {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-muted);
 }
 
 .exp-role {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--accent);
-    background: rgba(0,255,204,0.08);
-    border: 1px solid rgba(0,255,204,0.18);
-    padding: 2px 10px;
+    background: rgba(0, 255, 204, 0.08);
+    border: 1px solid rgba(0, 255, 204, 0.18);
+    padding: 3px 12px;
     border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .exp-award {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--gold);
+    background: rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 3px 12px;
+    border-radius: 50px;
+}
+
+.exp-year {
     font-size: 0.8rem;
     font-weight: 600;
-    color: #ffd700;
-    background: rgba(255,215,0,0.08);
-    border: 1px solid rgba(255,215,0,0.2);
-    padding: 2px 10px;
+    color: var(--accent);
+    background: rgba(0, 255, 204, 0.07);
+    border: 1px solid rgba(0, 255, 204, 0.15);
+    padding: 4px 12px;
     border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .exp-desc {
@@ -314,6 +343,32 @@ nav {
     font-size: 0.9rem;
     line-height: 1.8;
     margin-top: 4px;
+}
+
+.exp-bullets {
+    list-style: none;
+    padding-left: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.exp-bullets li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    position: relative;
+    padding-left: 20px;
+}
+
+.exp-bullets li::before {
+    content: '•';
+    color: var(--accent);
+    position: absolute;
+    left: 4px;
+    top: 0;
+    font-size: 1.1rem;
 }
 
 /* ─── EDUCATION ENTRIES ──────────────────────────────────── */
@@ -372,4 +427,6 @@ nav {
     .resume-section { padding: 24px 20px; }
 
     .educ-entry { flex-direction: column; gap: 8px; }
+    .exp-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .exp-year { align-self: flex-start; }
 }
